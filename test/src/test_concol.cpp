@@ -54,7 +54,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
       "{+yellow}%d{}\n",
       128, 3.14, 0xAA, 'S', "Hi", -128);
 
-  color(128_blue + ", " + 3.14_green + ", " + 0xAA_cyan + ", " + "S"_red +
+  color(128_blue + ", " + 3.14_green + ", " + 0xAA_cyan + ", " + 'S'_red +
         ", " + "Hi"_magenta + ", " + "-128"_yellow + '\n')
       .print();
 
@@ -266,6 +266,46 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color2.add_white_bright('H');
   color2.add('\n');
   color2.print();
+
+  color12.clear();
+  color12 += 'I';
+  color12 += color_tags::blue;
+  color12 += 'J';
+  color12 += color_tags::green;
+  color12 += 'K';
+  color12 += color_tags::cyan;
+  color12 += 'L';
+  color12 += color_tags::red;
+  color12 += 'M';
+  color12 += color_tags::magenta;
+  color12 += 'N';
+  color12 += color_tags::yellow;
+  color12 += 'O';
+  color12 += color_tags::white;
+  color12 += 'P';
+  color12 += color_tags::reset;
+  color12 += '\n';
+  color12.print();
+
+  color12.clear();
+  color12 += 'I';
+  color12 += color_tags::blue_bright;
+  color12 += 'J';
+  color12 += color_tags::green_bright;
+  color12 += 'K';
+  color12 += color_tags::cyan_bright;
+  color12 += 'L';
+  color12 += color_tags::red_bright;
+  color12 += 'M';
+  color12 += color_tags::magenta_bright;
+  color12 += 'N';
+  color12 += color_tags::yellow_bright;
+  color12 += 'O';
+  color12 += color_tags::white_bright;
+  color12 += 'P';
+  color12 += color_tags::reset;
+  color12 += '\n';
+  color12.print();
 
   return 0;
 } catch (...) {

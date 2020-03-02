@@ -141,6 +141,26 @@ class color_base {
 
 }  // namespace detail
 
+struct color_tags {
+  static constexpr const char* const black{"{black}"};
+  static constexpr const char* const blue{"{blue}"};
+  static constexpr const char* const green{"{green}"};
+  static constexpr const char* const cyan{"{cyan}"};
+  static constexpr const char* const red{"{red}"};
+  static constexpr const char* const magenta{"{magenta}"};
+  static constexpr const char* const yellow{"{yellow}"};
+  static constexpr const char* const white{"{white}"};
+  static constexpr const char* const black_bright{"{+black}"};
+  static constexpr const char* const blue_bright{"{+blue}"};
+  static constexpr const char* const green_bright{"{+green}"};
+  static constexpr const char* const cyan_bright{"{+cyan}"};
+  static constexpr const char* const red_bright{"{+red}"};
+  static constexpr const char* const magenta_bright{"{+magenta}"};
+  static constexpr const char* const yellow_bright{"{+yellow}"};
+  static constexpr const char* const white_bright{"{+white}"};
+  static constexpr const char* const reset{"{}"};
+};
+
 class color final : public detail::color_base {
   std::string _string{};
 
@@ -407,131 +427,275 @@ std::basic_ostream<charT, traits>& operator<<(
 namespace concol_literals {
 
 inline std::string operator""_black(const char* str) {
-  return {"{black}" + std::string(str) + "{}"};
+  return {concol::color_tags::black + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_blue(const char* str) {
-  return {"{blue}" + std::string(str) + "{}"};
+  return {concol::color_tags::blue + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_green(const char* str) {
-  return {"{green}" + std::string(str) + "{}"};
+  return {concol::color_tags::green + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_cyan(const char* str) {
-  return {"{cyan}" + std::string(str) + "{}"};
+  return {concol::color_tags::cyan + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_red(const char* str) {
-  return {"{red}" + std::string(str) + "{}"};
+  return {concol::color_tags::red + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_magenta(const char* str) {
-  return {"{magenta}" + std::string(str) + "{}"};
+  return {concol::color_tags::magenta + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_yellow(const char* str) {
-  return {"{yellow}" + std::string(str) + "{}"};
+  return {concol::color_tags::yellow + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_white(const char* str) {
-  return {"{white}" + std::string(str) + "{}"};
+  return {concol::color_tags::white + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_black_bright(const char* str) {
-  return {"{+black}" + std::string(str) + "{}"};
+  return {concol::color_tags::black_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_blue_bright(const char* str) {
-  return {"{+blue}" + std::string(str) + "{}"};
+  return {concol::color_tags::blue_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_green_bright(const char* str) {
-  return {"{+green}" + std::string(str) + "{}"};
+  return {concol::color_tags::green_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_cyan_bright(const char* str) {
-  return {"{+cyan}" + std::string(str) + "{}"};
+  return {concol::color_tags::cyan_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_red_bright(const char* str) {
-  return {"{+red}" + std::string(str) + "{}"};
+  return {concol::color_tags::red_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_magenta_bright(const char* str) {
-  return {"{+magenta}" + std::string(str) + "{}"};
+  return {concol::color_tags::magenta_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_yellow_bright(const char* str) {
-  return {"{+yellow}" + std::string(str) + "{}"};
+  return {concol::color_tags::yellow_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
 inline std::string operator""_white_bright(const char* str) {
-  return {"{+white}" + std::string(str) + "{}"};
+  return {concol::color_tags::white_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_black(const char* str, size_t) {
-  return {"{black}" + std::string(str) + "{}"};
+inline std::string operator""_black(const char* str, std::size_t) {
+  return {concol::color_tags::black + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_blue(const char* str, size_t) {
-  return {"{blue}" + std::string(str) + "{}"};
+inline std::string operator""_blue(const char* str, std::size_t) {
+  return {concol::color_tags::blue + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_green(const char* str, size_t) {
-  return {"{green}" + std::string(str) + "{}"};
+inline std::string operator""_green(const char* str, std::size_t) {
+  return {concol::color_tags::green + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_cyan(const char* str, size_t) {
-  return {"{cyan}" + std::string(str) + "{}"};
+inline std::string operator""_cyan(const char* str, std::size_t) {
+  return {concol::color_tags::cyan + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_red(const char* str, size_t) {
-  return {"{red}" + std::string(str) + "{}"};
+inline std::string operator""_red(const char* str, std::size_t) {
+  return {concol::color_tags::red + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_magenta(const char* str, size_t) {
-  return {"{magenta}" + std::string(str) + "{}"};
+inline std::string operator""_magenta(const char* str, std::size_t) {
+  return {concol::color_tags::magenta + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_yellow(const char* str, size_t) {
-  return {"{yellow}" + std::string(str) + "{}"};
+inline std::string operator""_yellow(const char* str, std::size_t) {
+  return {concol::color_tags::yellow + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_white(const char* str, size_t) {
-  return {"{white}" + std::string(str) + "{}"};
+inline std::string operator""_white(const char* str, std::size_t) {
+  return {concol::color_tags::white + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_black_bright(const char* str, size_t) {
-  return {"{+black}" + std::string(str) + "{}"};
+inline std::string operator""_black_bright(const char* str, std::size_t) {
+  return {concol::color_tags::black_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_blue_bright(const char* str, size_t) {
-  return {"{+blue}" + std::string(str) + "{}"};
+inline std::string operator""_blue_bright(const char* str, std::size_t) {
+  return {concol::color_tags::blue_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_green_bright(const char* str, size_t) {
-  return {"{+green}" + std::string(str) + "{}"};
+inline std::string operator""_green_bright(const char* str, std::size_t) {
+  return {concol::color_tags::green_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_cyan_bright(const char* str, size_t) {
-  return {"{+cyan}" + std::string(str) + "{}"};
+inline std::string operator""_cyan_bright(const char* str, std::size_t) {
+  return {concol::color_tags::cyan_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_red_bright(const char* str, size_t) {
-  return {"{+red}" + std::string(str) + "{}"};
+inline std::string operator""_red_bright(const char* str, std::size_t) {
+  return {concol::color_tags::red_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_magenta_bright(const char* str, size_t) {
-  return {"{+magenta}" + std::string(str) + "{}"};
+inline std::string operator""_magenta_bright(const char* str, std::size_t) {
+  return {concol::color_tags::magenta_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_yellow_bright(const char* str, size_t) {
-  return {"{+yellow}" + std::string(str) + "{}"};
+inline std::string operator""_yellow_bright(const char* str, std::size_t) {
+  return {concol::color_tags::yellow_bright + std::string(str) +
+          concol::color_tags::reset};
 }
 
-inline std::string operator""_white_bright(const char* str, size_t) {
-  return {"{+white}" + std::string(str) + "{}"};
+inline std::string operator""_white_bright(const char* str, std::size_t) {
+  return {concol::color_tags::white_bright + std::string(str) +
+          concol::color_tags::reset};
+}
+
+inline std::string operator""_black(const char ch) {
+  std::string str{concol::color_tags::black};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_blue(const char ch) {
+  std::string str{concol::color_tags::blue};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_green(const char ch) {
+  std::string str{concol::color_tags::green};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_cyan(const char ch) {
+  std::string str{concol::color_tags::cyan};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_red(const char ch) {
+  std::string str{concol::color_tags::red};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_magenta(const char ch) {
+  std::string str{concol::color_tags::magenta};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_yellow(const char ch) {
+  std::string str{concol::color_tags::yellow};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_white(const char ch) {
+  std::string str{concol::color_tags::white};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_black_bright(const char ch) {
+  std::string str{concol::color_tags::black_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_blue_bright(const char ch) {
+  std::string str{concol::color_tags::blue_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_green_bright(const char ch) {
+  std::string str{concol::color_tags::green_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_cyan_bright(const char ch) {
+  std::string str{concol::color_tags::cyan_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_red_bright(const char ch) {
+  std::string str{concol::color_tags::red_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_magenta_bright(const char ch) {
+  std::string str{concol::color_tags::magenta_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_yellow_bright(const char ch) {
+  std::string str{concol::color_tags::yellow_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
+}
+
+inline std::string operator""_white_bright(const char ch) {
+  std::string str{concol::color_tags::white_bright};
+  str += ch;
+  str += concol::color_tags::reset;
+  return str;
 }
 
 }  // namespace concol_literals
