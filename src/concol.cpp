@@ -175,3 +175,188 @@ color::color(std::string&& str) : _string{std::move(str)} {}
 #ifndef CONCOL_NO_STRING_VIEW
 color::color(const std::string_view& str) : _string{str.data()} {}
 #endif
+
+void color::print() const { printf(_string.c_str()); }
+void color::print_black() const { printf("{black}" + _string + "{}"); }
+void color::print_blue() const { printf("{blue}" + _string + "{}"); }
+void color::print_green() const { printf("{green}" + _string + "{}"); }
+void color::print_cyan() const { printf("{cyan}" + _string + "{}"); }
+void color::print_red() const { printf("{red}" + _string + "{}"); }
+void color::print_magenta() const { printf("{magenta}" + _string + "{}"); }
+void color::print_yellow() const { printf("{yellow}" + _string + "{}"); }
+void color::print_white() const { printf("{white}" + _string + "{}"); }
+void color::print_black_bright() const { printf("{+black}" + _string + "{}"); }
+void color::print_blue_bright() const { printf("{+blue}" + _string + "{}"); }
+void color::print_green_bright() const { printf("{+green}" + _string + "{}"); }
+void color::print_cyan_bright() const { printf("{+cyan}" + _string + "{}"); }
+void color::print_red_bright() const { printf("{+red}" + _string + "{}"); }
+void color::print_magenta_bright() const {
+  printf("{+magenta}" + _string + "{}");
+}
+void color::print_yellow_bright() const {
+  printf("{+yellow}" + _string + "{}");
+}
+void color::print_white_bright() const { printf("{+white}" + _string + "{}"); }
+
+void color::add(const std::string& str) { _string += str; }
+void color::add(const char str[]) { add(std::string(str)); }
+void color::add(const char ch) { _string += ch; }
+void color::add_black(const std::string& str) {
+  _string += "{black}" + str + "{}";
+}
+void color::add_black(const char str[]) { add_black(std::string(str)); }
+void color::add_black(const char ch) {
+  _string += "{black}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_blue(const std::string& str) {
+  _string += "{blue}" + str + "{}";
+}
+void color::add_blue(const char str[]) { add_blue(std::string(str)); }
+void color::add_blue(const char ch) {
+  _string += "{blue}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_green(const std::string& str) {
+  _string += "{green}" + str + "{}";
+}
+void color::add_green(const char str[]) { add_green(std::string(str)); }
+void color::add_green(const char ch) {
+  _string += "{green}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_cyan(const std::string& str) {
+  _string += "{cyan}" + str + "{}";
+}
+void color::add_cyan(const char str[]) { add_cyan(std::string(str)); }
+void color::add_cyan(const char ch) {
+  _string += "{cyan}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_red(const std::string& str) { _string += "{red}" + str + "{}"; }
+void color::add_red(const char str[]) { add_red(std::string(str)); }
+void color::add_red(const char ch) {
+  _string += "{red}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_magenta(const std::string& str) {
+  _string += "{magenta}" + str + "{}";
+}
+void color::add_magenta(const char str[]) { add_magenta(std::string(str)); }
+void color::add_magenta(const char ch) {
+  _string += "{magenta}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_yellow(const std::string& str) {
+  _string += "{yellow}" + str + "{}";
+}
+void color::add_yellow(const char str[]) { add_yellow(std::string(str)); }
+void color::add_yellow(const char ch) {
+  _string += "{yellow}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_white(const std::string& str) {
+  _string += "{white}" + str + "{}";
+}
+void color::add_white(const char str[]) { add_white(std::string(str)); }
+void color::add_white(const char ch) {
+  _string += "{white}";
+  _string += ch;
+  _string += "{}";
+}
+
+void color::add_black_bright(const std::string& str) {
+  _string += "{+black}" + str + "{}";
+}
+void color::add_black_bright(const char str[]) {
+  add_black_bright(std::string(str));
+}
+void color::add_black_bright(const char ch) {
+  _string += "{+black}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_blue_bright(const std::string& str) {
+  _string += "{+blue}" + str + "{}";
+}
+void color::add_blue_bright(const char str[]) {
+  add_blue_bright(std::string(str));
+}
+void color::add_blue_bright(const char ch) {
+  _string += "{+blue}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_green_bright(const std::string& str) {
+  _string += "{+green}" + str + "{}";
+}
+void color::add_green_bright(const char str[]) {
+  add_green_bright(std::string(str));
+}
+void color::add_green_bright(const char ch) {
+  _string += "{+green}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_cyan_bright(const std::string& str) {
+  _string += "{+cyan}" + str + "{}";
+}
+void color::add_cyan_bright(const char str[]) {
+  add_cyan_bright(std::string(str));
+}
+void color::add_cyan_bright(const char ch) {
+  _string += "{+cyan}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_red_bright(const std::string& str) {
+  _string += "{+red}" + str + "{}";
+}
+void color::add_red_bright(const char str[]) {
+  add_red_bright(std::string(str));
+}
+void color::add_red_bright(const char ch) {
+  _string += "{+red}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_magenta_bright(const std::string& str) {
+  _string += "{+magenta}" + str + "{}";
+}
+void color::add_magenta_bright(const char str[]) {
+  add_magenta_bright(std::string(str));
+}
+void color::add_magenta_bright(const char ch) {
+  _string += "{+magenta}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_yellow_bright(const std::string& str) {
+  _string += "{+yellow}" + str + "{}";
+}
+void color::add_yellow_bright(const char str[]) {
+  add_yellow_bright(std::string(str));
+}
+void color::add_yellow_bright(const char ch) {
+  _string += "{+yellow}";
+  _string += ch;
+  _string += "{}";
+}
+void color::add_white_bright(const std::string& str) {
+  _string += "{+white}" + str + "{}";
+}
+void color::add_white_bright(const char str[]) {
+  add_white_bright(std::string(str));
+}
+void color::add_white_bright(const char ch) {
+  _string += "{+white}";
+  _string += ch;
+  _string += "{}";
+}

@@ -168,6 +168,105 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color::printf(", ");
   color("white\n").print_white_bright();
 
+  color::set_enabled(true);
+
+  color color1{};
+  color1 += "color1";
+  color color2{"color2"};
+  color color12 = color1 + std::string(" + ") + color2 + "\n";
+  color12.print();
+  color12.print_blue();
+  color12.print_green();
+  color12.print_cyan();
+  color12.print_red();
+  color12.print_magenta();
+  color12.print_yellow();
+  color12.print_white();
+  color12.print_blue_bright();
+  color12.print_green_bright();
+  color12.print_cyan_bright();
+  color12.print_red_bright();
+  color12.print_magenta_bright();
+  color12.print_yellow_bright();
+  color12.print_white_bright();
+  color12.clear();
+
+  color12.add_blue("blue");
+  color12.add(", ");
+  color12.add_green("green");
+  color12.add(", ");
+  color12.add_cyan("cyan");
+  color12.add(", ");
+  color12.add_red("red");
+  color12.add(", ");
+  color12.add_magenta("magenta");
+  color12.add(", ");
+  color12.add_yellow("yellow");
+  color12.add(", ");
+  color12.add_white("white\n");
+  color12.print();
+  color12.clear();
+  color12.add_blue_bright("blue");
+  color12.add(", ");
+  color12.add_green_bright("green");
+  color12.add(", ");
+  color12.add_cyan_bright("cyan");
+  color12.add(", ");
+  color12.add_red_bright("red");
+  color12.add(", ");
+  color12.add_magenta_bright("magenta");
+  color12.add(", ");
+  color12.add_yellow_bright("yellow");
+  color12.add(", ");
+  color12.add_white_bright("white\n");
+  color12.print();
+
+  color12.clear();
+  color12.add_blue(0);
+  color12.add_green(1);
+  color12.add_cyan(2);
+  color12.add_red(3);
+  color12.add_magenta(4);
+  color12.add_yellow(5);
+  color12.add_white(6);
+  color12.add('\n');
+  color12.print();
+
+  color12.clear();
+  color12.add_blue_bright(0);
+  color12.add_green_bright(1);
+  color12.add_cyan_bright(2);
+  color12.add_red_bright(3);
+  color12.add_magenta_bright(4);
+  color12.add_yellow_bright(5);
+  color12.add_white_bright(6);
+  color12.add('\n');
+  color12.print();
+
+  color1.clear();
+  color1.add('A');
+  color1.add_blue('B');
+  color1.add_green('C');
+  color1.add_cyan('D');
+  color1.add_red('E');
+  color1.add_magenta('F');
+  color1.add_yellow('G');
+  color1.add_white('H');
+  color1.add('\n');
+  color1.print();
+
+  color2.clear();
+  color2.add('A');
+  color2.add_blue_bright('B');
+  color2.add_green_bright('C');
+  color2.add_cyan_bright('D');
+  color2.add_red_bright('E');
+  color2.add_magenta_bright('F');
+  color2.add_yellow_bright('G');
+  color2.add_white_bright('H');
+  color2.add('\n');
+  color2.print();
+
   return 0;
 } catch (...) {
   std::cerr << "\nunexpected exception\n";

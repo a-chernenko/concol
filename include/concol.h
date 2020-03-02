@@ -27,7 +27,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #if __cplusplus < 201103L
 #error \
-    "This file requires compiler and library support for the ISO C++ 2011 standard or higher."
+    "This file requires compiler and library support for the ISO C++ 2011 standard or later."
 #elif __cplusplus < 201703L
 #define CONCOL_NO_STRING_VIEW
 #endif
@@ -145,30 +145,159 @@ class color final : public detail::color_base {
   std::string _string{};
 
  public:
-  color() = delete;
+  color() = default;
   color(const char*);
   color(const std::string&);
   color(std::string&&);
 #ifndef CONCOL_NO_STRING_VIEW
   color(const std::string_view&);
 #endif
-  void print() { printf(_string.c_str()); }
-  void print_black() { printf("{black}" + _string + "{}"); }
-  void print_blue() { printf("{blue}" + _string + "{}"); }
-  void print_green() { printf("{green}" + _string + "{}"); }
-  void print_cyan() { printf("{cyan}" + _string + "{}"); }
-  void print_red() { printf("{red}" + _string + "{}"); }
-  void print_magenta() { printf("{magenta}" + _string + "{}"); }
-  void print_yellow() { printf("{yellow}" + _string + "{}"); }
-  void print_white() { printf("{white}" + _string + "{}"); }
-  void print_black_bright() { printf("{+black}" + _string + "{}"); }
-  void print_blue_bright() { printf("{+blue}" + _string + "{}"); }
-  void print_green_bright() { printf("{+green}" + _string + "{}"); }
-  void print_cyan_bright() { printf("{+cyan}" + _string + "{}"); }
-  void print_red_bright() { printf("{+red}" + _string + "{}"); }
-  void print_magenta_bright() { printf("{+magenta}" + _string + "{}"); }
-  void print_yellow_bright() { printf("{+yellow}" + _string + "{}"); }
-  void print_white_bright() { printf("{+white}" + _string + "{}"); }
+  color operator+(color rhs) {
+    _string += rhs._string;
+    return *this;
+  }
+  color& operator+=(const char rhs[]) {
+    _string += std::string(rhs);
+    return *this;
+  }
+  void clear() noexcept { _string.clear(); }
+
+  void add(const std::string&);
+  void add(const char[]);
+  void add(const char);
+  void add_black(const std::string&);
+  void add_black(const char[]);
+  void add_black(const char);
+  void add_blue(const std::string&);
+  void add_blue(const char[]);
+  void add_blue(const char);
+  void add_green(const std::string&);
+  void add_green(const char[]);
+  void add_green(const char);
+  void add_cyan(const std::string&);
+  void add_cyan(const char[]);
+  void add_cyan(const char);
+  void add_red(const std::string&);
+  void add_red(const char[]);
+  void add_red(const char);
+  void add_magenta(const std::string&);
+  void add_magenta(const char[]);
+  void add_magenta(const char);
+  void add_yellow(const std::string&);
+  void add_yellow(const char[]);
+  void add_yellow(const char);
+  void add_white(const std::string&);
+  void add_white(const char[]);
+  void add_white(const char);
+  void add_black_bright(const std::string&);
+  void add_black_bright(const char[]);
+  void add_black_bright(const char);
+  void add_blue_bright(const std::string&);
+  void add_blue_bright(const char[]);
+  void add_blue_bright(const char);
+  void add_green_bright(const std::string&);
+  void add_green_bright(const char[]);
+  void add_green_bright(const char);
+  void add_cyan_bright(const std::string&);
+  void add_cyan_bright(const char[]);
+  void add_cyan_bright(const char);
+  void add_red_bright(const std::string&);
+  void add_red_bright(const char[]);
+  void add_red_bright(const char);
+  void add_magenta_bright(const std::string&);
+  void add_magenta_bright(const char[]);
+  void add_magenta_bright(const char);
+  void add_yellow_bright(const std::string&);
+  void add_yellow_bright(const char[]);
+  void add_yellow_bright(const char);
+  void add_white_bright(const std::string&);
+  void add_white_bright(const char[]);
+  void add_white_bright(const char);
+  template <typename Type>
+  void add(const Type& value) {
+    add(std::to_string(value));
+  }
+  template <typename Type>
+  void add_black(const Type& value) {
+    add_black(std::to_string(value));
+  }
+  template <typename Type>
+  void add_blue(const Type& value) {
+    add_blue(std::to_string(value));
+  }
+  template <typename Type>
+  void add_green(const Type& value) {
+    add_green(std::to_string(value));
+  }
+  template <typename Type>
+  void add_cyan(const Type& value) {
+    add_cyan(std::to_string(value));
+  }
+  template <typename Type>
+  void add_red(const Type& value) {
+    add_red(std::to_string(value));
+  }
+  template <typename Type>
+  void add_magenta(const Type& value) {
+    add_magenta(std::to_string(value));
+  }
+  template <typename Type>
+  void add_yellow(const Type& value) {
+    add_yellow(std::to_string(value));
+  }
+  template <typename Type>
+  void add_white(const Type& value) {
+    add_white(std::to_string(value));
+  }
+  template <typename Type>
+  void add_black_bright(const Type& value) {
+    add_black_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_blue_bright(const Type& value) {
+    add_blue_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_green_bright(const Type& value) {
+    add_green_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_cyan_bright(const Type& value) {
+    add_cyan_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_red_bright(const Type& value) {
+    add_red_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_magenta_bright(const Type& value) {
+    add_magenta_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_yellow_bright(const Type& value) {
+    add_yellow_bright(std::to_string(value));
+  }
+  template <typename Type>
+  void add_white_bright(const Type& value) {
+    add_white_bright(std::to_string(value));
+  }
+  void print() const;
+  void print_black() const;
+  void print_blue() const;
+  void print_green() const;
+  void print_cyan() const;
+  void print_red() const;
+  void print_magenta() const;
+  void print_yellow() const;
+  void print_white() const;
+  void print_black_bright() const;
+  void print_blue_bright() const;
+  void print_green_bright() const;
+  void print_cyan_bright() const;
+  void print_red_bright() const;
+  void print_magenta_bright() const;
+  void print_yellow_bright() const;
+  void print_white_bright() const;
   template <typename... Args>
   static void printf(const char* fmt, const Args&... args) {
 #ifndef _WIN32
