@@ -173,7 +173,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color color1{};
   color1 += "color1";
   color color2{"color2"};
-  color color12 = color1 + std::string(" + ") + color2 + "\n";
+  color color12 = color1 + std::string(" + ") + color2 + '\n';
   color12.print();
   color12.print_blue();
   color12.print_green();

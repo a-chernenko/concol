@@ -152,16 +152,43 @@ class color final : public detail::color_base {
 #ifndef CONCOL_NO_STRING_VIEW
   color(const std::string_view&);
 #endif
-  color operator+(color rhs) {
-    _string += rhs._string;
+  color operator+(const color& rhs) {
+    color tmp{*this};
+    tmp._string += rhs._string;
+    return tmp;
+  }
+  color operator+(const std::string& rhs) {
+    color tmp{*this};
+    tmp._string += rhs;
+    return tmp;
+  }
+  color operator+(const char rhs[]) {
+    color tmp{*this};
+    tmp._string += std::string(rhs);
+    return tmp;
+  }
+  color operator+(const char rhs) {
+    color tmp{*this};
+    tmp._string += rhs;
+    return tmp;
+  }
+  color& operator+=(const color& rhs) {
+    *this += rhs;
+    return *this;
+  }
+  color& operator+=(const std::string& rhs) {
+    _string += rhs;
     return *this;
   }
   color& operator+=(const char rhs[]) {
     _string += std::string(rhs);
     return *this;
   }
+  color& operator+=(const char rhs) {
+    _string += rhs;
+    return *this;
+  }
   void clear() noexcept { _string.clear(); }
-
   void add(const std::string&);
   void add(const char[]);
   void add(const char);
