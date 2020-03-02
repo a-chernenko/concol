@@ -189,8 +189,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12.print_magenta_bright();
   color12.print_yellow_bright();
   color12.print_white_bright();
-  color12.clear();
 
+  color12.clear();
   color12.add_blue("blue");
   color12.add(", ");
   color12.add_green("green");
@@ -205,6 +205,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12.add(", ");
   color12.add_white("white\n");
   color12.print();
+
   color12.clear();
   color12.add_blue_bright("blue");
   color12.add(", ");
@@ -242,6 +243,44 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12.add_white_bright(6);
   color12.add('\n');
   color12.print();
+
+  color1.clear();
+  color1 += color_tags::blue;
+  color1 += std::to_string(0);
+  color1 += color_tags::green;
+  color1 += std::to_string(1);
+  color1 += color_tags::cyan;
+  color1 += std::to_string(2);
+  color1 += color_tags::red;
+  color1 += std::to_string(3);
+  color1 += color_tags::magenta;
+  color1 += std::to_string(4);
+  color1 += color_tags::yellow;
+  color1 += std::to_string(5);
+  color1 += color_tags::white;
+  color1 += std::to_string(6);
+  color1 += color_tags::reset;
+  color1 += '\n';
+  color1.print();
+
+  color2.clear();
+  color2 += color_tags::blue_bright;
+  color2 += std::to_string(0);
+  color2 += color_tags::green_bright;
+  color2 += std::to_string(1);
+  color2 += color_tags::cyan_bright;
+  color2 += std::to_string(2);
+  color2 += color_tags::red_bright;
+  color2 += std::to_string(3);
+  color2 += color_tags::magenta_bright;
+  color2 += std::to_string(4);
+  color2 += color_tags::yellow_bright;
+  color2 += std::to_string(5);
+  color2 += color_tags::white_bright;
+  color2 += std::to_string(6);
+  color2 += color_tags::reset;
+  color2 += '\n';
+  color2.print();
 
   color1.clear();
   color1.add('A');
