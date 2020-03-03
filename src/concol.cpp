@@ -216,7 +216,7 @@ color color::operator+(const char rhs) {
 }
 
 color& color::operator+=(const color& rhs) {
-  *this += rhs;
+  _string += rhs._string;
   return *this;
 }
 

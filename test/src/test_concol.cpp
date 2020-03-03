@@ -50,7 +50,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color::printf("{+yellow}color {+white}print{} to {+blue} stdout\n{}");
 
   color::printf(
-      "{+blue}%d{}, {+green}%.2f{}, {+cyan}0x%X{}, {+red}%c{}, {+magenta}%s{}, "
+      "{+blue}%d{}, {+green}%.2f{}, {+cyan}0x%X{}, {+red}%c{}, "
+      "{+magenta}%s{}, "
       "{+yellow}%d{}\n",
       128, 3.14, 0xAA, 'S', "Hi", -128);
 
@@ -171,9 +172,12 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color::set_enabled(true);
 
   color color1{};
-  color1 += "color1";
-  color color2{"color2"};
-  color color12 = color1 + std::string(" + ") + color2 + '\n';
+  color1 += "color";
+  color1 = color1 + '1';
+  color color2{"color"};
+  color2 += '2';
+  color color12 = color1;
+  color12 += std::string(" + ") + color2 + '\n';
   color12.print();
   color12.print_blue();
   color12.print_green();
@@ -245,39 +249,25 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12.print();
 
   color1.clear();
-  color1 += color_tags::blue;
-  color1 += std::to_string(0);
-  color1 += color_tags::green;
-  color1 += std::to_string(1);
-  color1 += color_tags::cyan;
-  color1 += std::to_string(2);
-  color1 += color_tags::red;
-  color1 += std::to_string(3);
-  color1 += color_tags::magenta;
-  color1 += std::to_string(4);
-  color1 += color_tags::yellow;
-  color1 += std::to_string(5);
-  color1 += color_tags::white;
-  color1 += std::to_string(6);
-  color1 += color_tags::reset;
-  color1 += '\n';
+  color1 = color1 + color_tags::blue + to_color(0);
+  color1 = color1 + color_tags::green + to_color(1);
+  color1 = color1 + color_tags::cyan + to_color(2);
+  color1 = color1 + color_tags::red + to_color(3);
+  color1 = color1 + color_tags::magenta + to_color(4);
+  color1 = color1 + color_tags::yellow + to_color(5);
+  color1 = color1 + color_tags::white + to_color(6);
+  color1 = color1 + color_tags::reset;
+  color1 = color1 + '\n';
   color1.print();
 
   color2.clear();
-  color2 += color_tags::blue_bright;
-  color2 += std::to_string(0);
-  color2 += color_tags::green_bright;
-  color2 += std::to_string(1);
-  color2 += color_tags::cyan_bright;
-  color2 += std::to_string(2);
-  color2 += color_tags::red_bright;
-  color2 += std::to_string(3);
-  color2 += color_tags::magenta_bright;
-  color2 += std::to_string(4);
-  color2 += color_tags::yellow_bright;
-  color2 += std::to_string(5);
-  color2 += color_tags::white_bright;
-  color2 += std::to_string(6);
+  color2 += color_tags::blue_bright + to_color(0);
+  color2 += color_tags::green_bright + to_color(1);
+  color2 += color_tags::cyan_bright + to_color(2);
+  color2 += color_tags::red_bright + to_color(3);
+  color2 += color_tags::magenta_bright + to_color(4);
+  color2 += color_tags::yellow_bright + to_color(5);
+  color2 += color_tags::white_bright + to_color(6);
   color2 += color_tags::reset;
   color2 += '\n';
   color2.print();
@@ -327,25 +317,24 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12.print();
 
   color12.clear();
-  color12 += 'I';
-  color12 += color_tags::blue_bright;
-  color12 += 'J';
-  color12 += color_tags::green_bright;
-  color12 += 'K';
-  color12 += color_tags::cyan_bright;
-  color12 += 'L';
-  color12 += color_tags::red_bright;
-  color12 += 'M';
-  color12 += color_tags::magenta_bright;
-  color12 += 'N';
-  color12 += color_tags::yellow_bright;
-  color12 += 'O';
-  color12 += color_tags::white_bright;
-  color12 += 'P';
-  color12 += color_tags::reset;
-  color12 += '\n';
+  color12 = color12 + 'I';
+  color12 = color12 + color_tags::blue_bright;
+  color12 = color12 + 'J';
+  color12 = color12 + color_tags::green_bright;
+  color12 = color12 + 'K';
+  color12 = color12 + color_tags::cyan_bright;
+  color12 = color12 + 'L';
+  color12 = color12 + color_tags::red_bright;
+  color12 = color12 + 'M';
+  color12 = color12 + color_tags::magenta_bright;
+  color12 = color12 + 'N';
+  color12 = color12 + color_tags::yellow_bright;
+  color12 = color12 + 'O';
+  color12 = color12 + color_tags::white_bright;
+  color12 = color12 + 'P';
+  color12 = color12 + color_tags::reset;
+  color12 = color12 + '\n';
   color12.print();
-
   return 0;
 } catch (...) {
   std::cerr << "\nunexpected exception\n";

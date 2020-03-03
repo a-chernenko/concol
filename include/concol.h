@@ -173,10 +173,27 @@ class color final : public detail::color_base {
 #ifndef CONCOL_NO_STRING_VIEW
   color(const std::string_view&);
 #endif
+  color(const color&) = default;
+  color& operator=(const color&) = default;
   color operator+(const color&);
   color operator+(const std::string&);
   color operator+(const char*);
   color operator+(const char);
+  friend color operator+(const std::string& lhs, const color& rhs) {
+    color tmp{rhs};
+    tmp._string = lhs + tmp._string;
+    return tmp;
+  }
+  friend color operator+(const char* lhs, const color& rhs) {
+    color tmp{rhs};
+    tmp._string = std::string(lhs) + tmp._string;
+    return tmp;
+  }
+  friend color operator+(const char lhs, const color& rhs) {
+    color tmp{rhs};
+    tmp._string = lhs + tmp._string;
+    return tmp;
+  }
   color& operator+=(const color&);
   color& operator+=(const std::string&);
   color& operator+=(const char*);
@@ -366,6 +383,11 @@ class color final : public detail::color_base {
   }
 #endif
 };
+
+template <typename Type>
+color to_color(Type value) {
+  return color(std::to_string(value));
+}
 
 }  // namespace concol
 
