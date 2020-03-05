@@ -38,7 +38,6 @@ constexpr color_data color_constants::values[];
 #endif
 
 namespace concol {
-
 namespace detail {
 
 color_type to_bright(color_type _fg) noexcept {
@@ -46,7 +45,6 @@ color_type to_bright(color_type _fg) noexcept {
 }
 
 }  // namespace detail
-
 }  // namespace concol
 
 std::string color_base::ansi_color_code(color_type _fg, color_type _bg) {
@@ -191,6 +189,18 @@ color::color(std::string&& str) : _string{std::move(str)} {}
 color::color(const std::string_view& str) : _string{str.data()} {}
 #endif
 
+color color::operator+(color_type rhs) {
+  color tmp{*this};
+  tmp._string += color_tags::values[int(rhs)];
+  return tmp;
+}
+
+color color::operator+(color_ctrl rhs) {
+  color tmp{*this};
+  tmp._string += color_tags::values[int(rhs)];
+  return tmp;
+}
+
 color color::operator+(const color& rhs) {
   color tmp{*this};
   tmp._string += rhs._string;
@@ -222,6 +232,16 @@ color& color::operator+=(const color& rhs) {
 
 color& color::operator+=(const std::string& rhs) {
   _string += rhs;
+  return *this;
+}
+
+color& color::operator+=(color_type rhs) {
+  _string += color_tags::values[int(rhs)];
+  return *this;
+}
+
+color& color::operator+=(color_ctrl rhs) {
+  _string += color_tags::values[int(rhs)];
   return *this;
 }
 

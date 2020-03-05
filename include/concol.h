@@ -75,7 +75,7 @@ enum class color_type : int {
   white_bright
 };
 
-enum class color_ctrl : int { reset };
+enum class color_ctrl : int { reset = int(color_type::white_bright) + 1 };
 
 namespace detail {
 
@@ -139,8 +139,6 @@ class color_base {
   static bool is_enabled() noexcept { return _enabled; }
 };
 
-}  // namespace detail
-
 struct color_tags {
   static constexpr const char* const black{"{black}"};
   static constexpr const char* const blue{"{blue}"};
@@ -159,8 +157,15 @@ struct color_tags {
   static constexpr const char* const yellow_bright{"{+yellow}"};
   static constexpr const char* const white_bright{"{+white}"};
   static constexpr const char* const reset{"{}"};
+  static constexpr const char* const values[]{
+      black,        blue,        green,      cyan,           red,
+      magenta,      yellow,      white,      black_bright,   blue_bright,
+      green_bright, cyan_bright, red_bright, magenta_bright, yellow_bright,
+      white_bright, reset};
   color_tags() = delete;
 };
+
+}  // namespace detail
 
 class color final : public detail::color_base {
   std::string _string{};
@@ -177,8 +182,21 @@ class color final : public detail::color_base {
   color& operator=(const color&) = default;
   color operator+(const color&);
   color operator+(const std::string&);
+  color operator+(color_type);
+  color operator+(color_ctrl);
   color operator+(const char*);
   color operator+(const char);
+
+  friend color operator+(color_type lhs, const color& rhs) {
+    color tmp{rhs};
+    tmp._string += detail::color_tags::values[int(lhs)];
+    return tmp;
+  }
+  friend color operator+(color_ctrl lhs, const color& rhs) {
+    color tmp{rhs};
+    tmp._string += detail::color_tags::values[int(lhs)];
+    return tmp;
+  }
   friend color operator+(const std::string& lhs, const color& rhs) {
     color tmp{rhs};
     tmp._string = lhs + tmp._string;
@@ -196,6 +214,8 @@ class color final : public detail::color_base {
   }
   color& operator+=(const color&);
   color& operator+=(const std::string&);
+  color& operator+=(color_type);
+  color& operator+=(color_ctrl);
   color& operator+=(const char*);
   color& operator+=(const char);
   void clear() noexcept { _string.clear(); }
