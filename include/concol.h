@@ -219,6 +219,8 @@ class color final : public detail::color_base {
   color& operator+=(const char*);
   color& operator+=(const char);
   void clear() noexcept { _string.clear(); }
+  std::string to_string() const noexcept { return _string; }
+  const char* c_str() const noexcept { return _string.c_str(); }
   void add(const std::string&);
   void add(const char*);
   void add(const char);
