@@ -321,217 +321,290 @@ void color::print_white_bright() const {
   printf(color_tags::white_bright + _string + color_tags::reset);
 }
 
-void color::add(const std::string& str) { _string += str; }
-
-void color::add(const char* c_str) { add(std::string(c_str)); }
-
-void color::add(const char ch) { _string += ch; }
-
-void color::add_black(const std::string& str) {
-  _string += color_tags::black + str + color_tags::reset;
+color& color::add(const std::string& str) {
+  _string += str;
+  return *this;
 }
 
-void color::add_black(const char* c_str) { add_black(std::string(c_str)); }
+color& color::add(const char* c_str) {
+  add(std::string(c_str));
+  return *this;
+}
 
-void color::add_black(const char ch) {
+color& color::add(const char ch) {
+  _string += ch;
+  return *this;
+}
+
+color& color::add_black(const std::string& str) {
+  _string += color_tags::black + str + color_tags::reset;
+  return *this;
+}
+
+color& color::add_black(const char* c_str) {
+  add_black(std::string(c_str));
+  return *this;
+}
+
+color& color::add_black(const char ch) {
   _string += color_tags::black;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_blue(const std::string& str) {
+color& color::add_blue(const std::string& str) {
   _string += color_tags::blue + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_blue(const char* c_str) { add_blue(std::string(c_str)); }
+color& color::add_blue(const char* c_str) {
+  add_blue(std::string(c_str));
+  return *this;
+}
 
-void color::add_blue(const char ch) {
+color& color::add_blue(const char ch) {
   _string += color_tags::blue;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_green(const std::string& str) {
+color& color::add_green(const std::string& str) {
   _string += color_tags::green + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_green(const char* c_str) { add_green(std::string(c_str)); }
+color& color::add_green(const char* c_str) {
+  add_green(std::string(c_str));
+  return *this;
+}
 
-void color::add_green(const char ch) {
+color& color::add_green(const char ch) {
   _string += color_tags::green;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_cyan(const std::string& str) {
+color& color::add_cyan(const std::string& str) {
   _string += color_tags::cyan + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_cyan(const char* c_str) { add_cyan(std::string(c_str)); }
+color& color::add_cyan(const char* c_str) {
+  add_cyan(std::string(c_str));
+  return *this;
+}
 
-void color::add_cyan(const char ch) {
+color& color::add_cyan(const char ch) {
   _string += color_tags::cyan;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_red(const std::string& str) {
+color& color::add_red(const std::string& str) {
   _string += color_tags::red + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_red(const char* c_str) { add_red(std::string(c_str)); }
+color& color::add_red(const char* c_str) {
+  add_red(std::string(c_str));
+  return *this;
+}
 
-void color::add_red(const char ch) {
+color& color::add_red(const char ch) {
   _string += color_tags::red;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_magenta(const std::string& str) {
+color& color::add_magenta(const std::string& str) {
   _string += color_tags::magenta + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_magenta(const char* c_str) { add_magenta(std::string(c_str)); }
+color& color::add_magenta(const char* c_str) {
+  add_magenta(std::string(c_str));
+  return *this;
+}
 
-void color::add_magenta(const char ch) {
+color& color::add_magenta(const char ch) {
   _string += color_tags::magenta;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_yellow(const std::string& str) {
+color& color::add_yellow(const std::string& str) {
   _string += color_tags::yellow + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_yellow(const char* c_str) { add_yellow(std::string(c_str)); }
+color& color::add_yellow(const char* c_str) {
+  add_yellow(std::string(c_str));
+  return *this;
+}
 
-void color::add_yellow(const char ch) {
+color& color::add_yellow(const char ch) {
   _string += color_tags::yellow;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_white(const std::string& str) {
+color& color::add_white(const std::string& str) {
   _string += color_tags::white + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_white(const char* c_str) { add_white(std::string(c_str)); }
+color& color::add_white(const char* c_str) {
+  add_white(std::string(c_str));
+  return *this;
+}
 
-void color::add_white(const char ch) {
+color& color::add_white(const char ch) {
   _string += color_tags::white;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_black_bright(const std::string& str) {
+color& color::add_black_bright(const std::string& str) {
   _string += color_tags::black_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_black_bright(const char* c_str) {
+color& color::add_black_bright(const char* c_str) {
   add_black_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_black_bright(const char ch) {
+color& color::add_black_bright(const char ch) {
   _string += color_tags::black_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_blue_bright(const std::string& str) {
+color& color::add_blue_bright(const std::string& str) {
   _string += color_tags::blue_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_blue_bright(const char* c_str) {
+color& color::add_blue_bright(const char* c_str) {
   add_blue_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_blue_bright(const char ch) {
+color& color::add_blue_bright(const char ch) {
   _string += color_tags::blue_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_green_bright(const std::string& str) {
+color& color::add_green_bright(const std::string& str) {
   _string += color_tags::green_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_green_bright(const char* c_str) {
+color& color::add_green_bright(const char* c_str) {
   add_green_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_green_bright(const char ch) {
+color& color::add_green_bright(const char ch) {
   _string += color_tags::green_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
-void color::add_cyan_bright(const std::string& str) {
+color& color::add_cyan_bright(const std::string& str) {
   _string += color_tags::cyan_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_cyan_bright(const char* c_str) {
+color& color::add_cyan_bright(const char* c_str) {
   add_cyan_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_cyan_bright(const char ch) {
+color& color::add_cyan_bright(const char ch) {
   _string += color_tags::cyan_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_red_bright(const std::string& str) {
+color& color::add_red_bright(const std::string& str) {
   _string += color_tags::red_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_red_bright(const char* c_str) {
+color& color::add_red_bright(const char* c_str) {
   add_red_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_red_bright(const char ch) {
+color& color::add_red_bright(const char ch) {
   _string += color_tags::red_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_magenta_bright(const std::string& str) {
+color& color::add_magenta_bright(const std::string& str) {
   _string += color_tags::magenta_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_magenta_bright(const char* c_str) {
+color& color::add_magenta_bright(const char* c_str) {
   add_magenta_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_magenta_bright(const char ch) {
+color& color::add_magenta_bright(const char ch) {
   _string += color_tags::magenta_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_yellow_bright(const std::string& str) {
+color& color::add_yellow_bright(const std::string& str) {
   _string += color_tags::yellow_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_yellow_bright(const char* c_str) {
+color& color::add_yellow_bright(const char* c_str) {
   add_yellow_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_yellow_bright(const char ch) {
+color& color::add_yellow_bright(const char ch) {
   _string += color_tags::yellow_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
-void color::add_white_bright(const std::string& str) {
+color& color::add_white_bright(const std::string& str) {
   _string += color_tags::white_bright + str + color_tags::reset;
+  return *this;
 }
 
-void color::add_white_bright(const char* c_str) {
+color& color::add_white_bright(const char* c_str) {
   add_white_bright(std::string(c_str));
+  return *this;
 }
 
-void color::add_white_bright(const char ch) {
+color& color::add_white_bright(const char ch) {
   _string += color_tags::white_bright;
   _string += ch;
   _string += color_tags::reset;
+  return *this;
 }
 
 namespace concol_literals {

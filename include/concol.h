@@ -221,124 +221,124 @@ class color final : public detail::color_base {
   void clear() noexcept { _string.clear(); }
   std::string to_string() const noexcept { return _string; }
   const char* c_str() const noexcept { return _string.c_str(); }
-  void add(const std::string&);
-  void add(const char*);
-  void add(const char);
-  void add_black(const std::string&);
-  void add_black(const char*);
-  void add_black(const char);
-  void add_blue(const std::string&);
-  void add_blue(const char*);
-  void add_blue(const char);
-  void add_green(const std::string&);
-  void add_green(const char*);
-  void add_green(const char);
-  void add_cyan(const std::string&);
-  void add_cyan(const char*);
-  void add_cyan(const char);
-  void add_red(const std::string&);
-  void add_red(const char*);
-  void add_red(const char);
-  void add_magenta(const std::string&);
-  void add_magenta(const char*);
-  void add_magenta(const char);
-  void add_yellow(const std::string&);
-  void add_yellow(const char*);
-  void add_yellow(const char);
-  void add_white(const std::string&);
-  void add_white(const char*);
-  void add_white(const char);
-  void add_black_bright(const std::string&);
-  void add_black_bright(const char*);
-  void add_black_bright(const char);
-  void add_blue_bright(const std::string&);
-  void add_blue_bright(const char*);
-  void add_blue_bright(const char);
-  void add_green_bright(const std::string&);
-  void add_green_bright(const char*);
-  void add_green_bright(const char);
-  void add_cyan_bright(const std::string&);
-  void add_cyan_bright(const char*);
-  void add_cyan_bright(const char);
-  void add_red_bright(const std::string&);
-  void add_red_bright(const char*);
-  void add_red_bright(const char);
-  void add_magenta_bright(const std::string&);
-  void add_magenta_bright(const char*);
-  void add_magenta_bright(const char);
-  void add_yellow_bright(const std::string&);
-  void add_yellow_bright(const char*);
-  void add_yellow_bright(const char);
-  void add_white_bright(const std::string&);
-  void add_white_bright(const char*);
-  void add_white_bright(const char);
+  color& add(const std::string&);
+  color& add(const char*);
+  color& add(const char);
+  color& add_black(const std::string&);
+  color& add_black(const char*);
+  color& add_black(const char);
+  color& add_blue(const std::string&);
+  color& add_blue(const char*);
+  color& add_blue(const char);
+  color& add_green(const std::string&);
+  color& add_green(const char*);
+  color& add_green(const char);
+  color& add_cyan(const std::string&);
+  color& add_cyan(const char*);
+  color& add_cyan(const char);
+  color& add_red(const std::string&);
+  color& add_red(const char*);
+  color& add_red(const char);
+  color& add_magenta(const std::string&);
+  color& add_magenta(const char*);
+  color& add_magenta(const char);
+  color& add_yellow(const std::string&);
+  color& add_yellow(const char*);
+  color& add_yellow(const char);
+  color& add_white(const std::string&);
+  color& add_white(const char*);
+  color& add_white(const char);
+  color& add_black_bright(const std::string&);
+  color& add_black_bright(const char*);
+  color& add_black_bright(const char);
+  color& add_blue_bright(const std::string&);
+  color& add_blue_bright(const char*);
+  color& add_blue_bright(const char);
+  color& add_green_bright(const std::string&);
+  color& add_green_bright(const char*);
+  color& add_green_bright(const char);
+  color& add_cyan_bright(const std::string&);
+  color& add_cyan_bright(const char*);
+  color& add_cyan_bright(const char);
+  color& add_red_bright(const std::string&);
+  color& add_red_bright(const char*);
+  color& add_red_bright(const char);
+  color& add_magenta_bright(const std::string&);
+  color& add_magenta_bright(const char*);
+  color& add_magenta_bright(const char);
+  color& add_yellow_bright(const std::string&);
+  color& add_yellow_bright(const char*);
+  color& add_yellow_bright(const char);
+  color& add_white_bright(const std::string&);
+  color& add_white_bright(const char*);
+  color& add_white_bright(const char);
   template <typename Type>
-  void add(const Type& value) {
-    add(std::to_string(value));
+  color& add(const Type& value) {
+    return add(std::to_string(value));
   }
   template <typename Type>
-  void add_black(const Type& value) {
-    add_black(std::to_string(value));
+  color& add_black(const Type& value) {
+    return add_black(std::to_string(value));
   }
   template <typename Type>
-  void add_blue(const Type& value) {
-    add_blue(std::to_string(value));
+  color& add_blue(const Type& value) {
+    return add_blue(std::to_string(value));
   }
   template <typename Type>
-  void add_green(const Type& value) {
-    add_green(std::to_string(value));
+  color& add_green(const Type& value) {
+    return add_green(std::to_string(value));
   }
   template <typename Type>
-  void add_cyan(const Type& value) {
-    add_cyan(std::to_string(value));
+  color& add_cyan(const Type& value) {
+    return add_cyan(std::to_string(value));
   }
   template <typename Type>
-  void add_red(const Type& value) {
-    add_red(std::to_string(value));
+  color& add_red(const Type& value) {
+    return add_red(std::to_string(value));
   }
   template <typename Type>
-  void add_magenta(const Type& value) {
-    add_magenta(std::to_string(value));
+  color& add_magenta(const Type& value) {
+    return add_magenta(std::to_string(value));
   }
   template <typename Type>
-  void add_yellow(const Type& value) {
-    add_yellow(std::to_string(value));
+  color& add_yellow(const Type& value) {
+    return add_yellow(std::to_string(value));
   }
   template <typename Type>
-  void add_white(const Type& value) {
-    add_white(std::to_string(value));
+  color& add_white(const Type& value) {
+    return add_white(std::to_string(value));
   }
   template <typename Type>
-  void add_black_bright(const Type& value) {
-    add_black_bright(std::to_string(value));
+  color& add_black_bright(const Type& value) {
+    return add_black_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_blue_bright(const Type& value) {
-    add_blue_bright(std::to_string(value));
+  color& add_blue_bright(const Type& value) {
+    return add_blue_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_green_bright(const Type& value) {
-    add_green_bright(std::to_string(value));
+  color& add_green_bright(const Type& value) {
+    return add_green_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_cyan_bright(const Type& value) {
-    add_cyan_bright(std::to_string(value));
+  color& add_cyan_bright(const Type& value) {
+    return add_cyan_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_red_bright(const Type& value) {
-    add_red_bright(std::to_string(value));
+  color& add_red_bright(const Type& value) {
+    return add_red_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_magenta_bright(const Type& value) {
-    add_magenta_bright(std::to_string(value));
+  color& add_magenta_bright(const Type& value) {
+    return add_magenta_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_yellow_bright(const Type& value) {
-    add_yellow_bright(std::to_string(value));
+  color& add_yellow_bright(const Type& value) {
+    return add_yellow_bright(std::to_string(value));
   }
   template <typename Type>
-  void add_white_bright(const Type& value) {
-    add_white_bright(std::to_string(value));
+  color& add_white_bright(const Type& value) {
+    return add_white_bright(std::to_string(value));
   }
   void print() const;
   void print_black() const;

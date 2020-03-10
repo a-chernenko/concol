@@ -337,16 +337,25 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12.print();
 
   color1.clear();
-  color1.add('Q');
-  color1.add_blue_bright('R');
-  color1.add_green_bright('S');
-  color1.add_cyan_bright('T');
-  color1.add_red_bright('U');
+  color1.add('Q')
+      .add_blue('R')
+      .add_green('S')
+      .add_cyan('T')
+      .add_red('U')
+      .add_magenta('V')
+      .add_yellow('W')
+      .add_white('X')
+      .add('\n');
   color2.clear();
-  color2.add_magenta_bright('V');
-  color2.add_yellow_bright('W');
-  color2.add_white_bright('X');
-  color2.add('\n');
+  color2.add('Q')
+      .add_blue_bright('R')
+      .add_green_bright('S')
+      .add_cyan_bright('T')
+      .add_red_bright('U')
+      .add_magenta_bright('V')
+      .add_yellow_bright('W')
+      .add_white_bright('X')
+      .add('\n');
   color::printf(color1.c_str() + color2.to_string());
 
   return 0;
