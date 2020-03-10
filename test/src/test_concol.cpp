@@ -45,6 +45,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color::set_ostream(stdout);
   color::printf("{green}no color print to stdout\n{}");
   color::set_enabled(true);
+  color::set_ostream(stderr);
   color::printf("{+cyan}color {+red}print{} to {+magenta} stderr\n{}");
   color::set_ostream(stdout);
   color::printf("{+yellow}color {+white}print{} to {+blue} stdout\n{}");
@@ -334,6 +335,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12 = color12 + 'P';
   color12 = color12 + color_ctrl::reset + '\n';
   color12.print();
+
+  color::printf(color12.c_str());
   return 0;
 } catch (...) {
   std::cerr << "\nunexpected exception\n";
