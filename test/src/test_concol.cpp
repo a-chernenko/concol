@@ -336,7 +336,19 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) try {
   color12 = color12 + color_ctrl::reset + '\n';
   color12.print();
 
-  color::printf(color12.c_str());
+  color1.clear();
+  color1.add('Q');
+  color1.add_blue_bright('R');
+  color1.add_green_bright('S');
+  color1.add_cyan_bright('T');
+  color1.add_red_bright('U');
+  color2.clear();
+  color2.add_magenta_bright('V');
+  color2.add_yellow_bright('W');
+  color2.add_white_bright('X');
+  color2.add('\n');
+  color::printf(color1.c_str() + color2.to_string());
+
   return 0;
 } catch (...) {
   std::cerr << "\nunexpected exception\n";
