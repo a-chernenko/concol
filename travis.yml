@@ -1,7 +1,9 @@
 language: cpp
 compiler: gcc
 
-os: linux
+os: 
+  - linux
+  - windows
 addons:
   apt:
     sources:
