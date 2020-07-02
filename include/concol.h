@@ -115,7 +115,7 @@ class color_base {
   static std::string windows_to_string(const char* fmt, const Args&... args) {
     auto size = std::snprintf(nullptr, 0, fmt, args...);
     std::string str{};
-    str.resize(size + 1);
+    str.resize(size_t(size) + 1);
 #if __cplusplus < 201703L
     std::snprintf(const_cast<char*>(str.data()), str.size(), fmt, args...);
 #else
@@ -381,7 +381,7 @@ class color final : public detail::color_base {
 #pragma GCC diagnostic ignored "-Wformat-security"
     auto size = std::snprintf(nullptr, 0, fmt, args...);
     std::string str{};
-    str.resize(size + 1);
+    str.resize(size_t(size) + 1);
 #if __cplusplus < 201703L
     std::snprintf(const_cast<char*>(str.data()), str.size(), fmt, args...);
 #else
