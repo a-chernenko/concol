@@ -1,13 +1,19 @@
+version: 1.0.{build}-{branch}
+
 configuration:
   - Debug
+  - Release
+  
+branches:
+  only:
+    - master
+    - develop
 
 environment:
   matrix:
     - platform: Win64
       language: cpp
       image: Visual Studio 2019
-
-test: off
 
 install:
   - git submodule update --init --recursive
@@ -22,3 +28,5 @@ build_script:
   - msbuild concol.sln /p:Platform=%vcplatform%
   - cd test
   - msbuild test_concol.sln /p:Platform=%vcplatform%
+  
+  test: off
