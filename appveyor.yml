@@ -29,4 +29,4 @@ build_script:
   - cd test
   - msbuild test_concol.sln /p:Platform=%vcplatform%
   
-  test: off
+test: off
