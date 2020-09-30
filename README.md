@@ -1,5 +1,5 @@
  # concol
-Console color it is a simple crossplatform (Windows/Linux) C++ static library for console colorized output.
+Concol it's a simple cross-platform (Windows/Linux) C++ static library for console colorized output.
 
 ### Build status
 
