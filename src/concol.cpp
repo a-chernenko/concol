@@ -35,6 +35,7 @@ std::FILE* color_base::_stream{stdout};
 
 #if __cplusplus < 201703L
 constexpr color_data color_constants::values[];
+constexpr const char* const color_tags::values[];
 #endif
 
 namespace concol {
