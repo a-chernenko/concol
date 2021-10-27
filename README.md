@@ -15,6 +15,13 @@ Branch          | Travis CI | AppVeyor
 
 ```c
 
+  using namespace concol;
+  using namespace concol_literals;
+#ifndef CONCOL_NO_STRING_VIEW
+  using namespace std::string_view_literals;
+#endif
+
+
   color::set_ostream(stderr);
   color::printf("{blue}no color print to stderr\n{}");
   color::set_ostream(stdout);
