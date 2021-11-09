@@ -188,13 +188,13 @@ class color final : public detail::color_base {
   color operator+(const char);
 
   friend color operator+(color_type lhs, const color& rhs) {
-    color tmp{rhs};
-    tmp._string += detail::color_tags::values[int(lhs)];
+    color tmp{detail::color_tags::values[int(lhs)]};
+    tmp += rhs;
     return tmp;
   }
   friend color operator+(color_ctrl lhs, const color& rhs) {
-    color tmp{rhs};
-    tmp._string += detail::color_tags::values[int(lhs)];
+    color tmp{detail::color_tags::values[int(lhs)]};
+    tmp += rhs;
     return tmp;
   }
   friend color operator+(const std::string& lhs, const color& rhs) {
