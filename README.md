@@ -346,4 +346,4 @@ Branch          | Travis CI | AppVeyor
 
 ## Example Console Output
 
-![test_concol](https://user-images.githubusercontent.com/11569734/140966280-af4017a5-0ff1-4e25-acc9-4113b455414e.png)
+![test_concol](https://user-images.githubusercontent.com/11569734/140971353-006dec5f-ce88-43c7-8a64-b4a3c8780c60.png)
