@@ -11,6 +11,18 @@ Branch          | Travis CI | AppVeyor
 [![CMake](https://github.com/a-chernenko/concol/actions/workflows/cmake.yml/badge.svg)](https://github.com/a-chernenko/concol/actions/workflows/cmake.yml)
 
 
+## Configuring
+
+`cmake -B build-release -DCMAKE_BUILD_TYPE=Release`
+
+`cmake -B build-debug -DCMAKE_BUILD_TYPE=Debug`
+
+## Building
+
+`cmake --build build-release`
+
+`cmake --build build-debug`
+
 ## Example
 
 ```c
@@ -346,4 +358,4 @@ Branch          | Travis CI | AppVeyor
 
 ## Example Console Output
 
-![test_concol](https://user-images.githubusercontent.com/11569734/140966280-af4017a5-0ff1-4e25-acc9-4113b455414e.png)
+![test_concol](https://user-images.githubusercontent.com/11569734/140971353-006dec5f-ce88-43c7-8a64-b4a3c8780c60.png)
