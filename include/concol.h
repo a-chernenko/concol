@@ -121,6 +121,9 @@ class color_base {
 #else
     std::snprintf(str.data(), str.size(), fmt, args...);
 #endif
+    if(!str.empty()){
+      str.resize(str.size() - 1);
+    }
     return str;
   }
 #endif
