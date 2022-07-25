@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.19)
 project(concol)
 
+f(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus")
+endif()
+
 set(PROJECT_COMPILE_DEFINES)
 set(PROJECT_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(PROJECT_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/include/concol.h)
