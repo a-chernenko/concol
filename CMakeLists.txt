@@ -5,6 +5,10 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus")
 endif()
 
+if(CMAKE_CXX_COMPILER_ID MATCHES "^(Clang|GNU)$")
+    set(PROJECT_COMPILE_OPTIONS -Wno-format-security)
+endif()
+
 set(PROJECT_COMPILE_DEFINES)
 set(PROJECT_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(PROJECT_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/include/concol.h)
