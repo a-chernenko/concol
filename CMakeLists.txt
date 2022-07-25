@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 project(concol)
 
-f(MSVC)
+if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus")
 endif()
 
