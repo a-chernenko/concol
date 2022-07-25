@@ -3,7 +3,7 @@ version: 1.0.{build}-{branch}
 configuration:
   - Debug
   - Release
-  
+
 branches:
   only:
     - master
@@ -24,9 +24,9 @@ before_build:
 build_script:
   - mkdir build_msvc
   - cd build_msvc
-  - cmake -G "Visual Studio 16 2019" ../
+  - cmake -G "Visual Studio 16 2019" -DTEST_ENABLE=ON ../
   - msbuild concol.sln /p:Platform=%vcplatform%
   - cd test
   - msbuild test_concol.sln /p:Platform=%vcplatform%
-  
+
 test: off
